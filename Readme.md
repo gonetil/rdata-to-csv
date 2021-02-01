@@ -1,16 +1,28 @@
-Convert RDATA files into CSV
+# Convert RDATA files into CSV
 
-Usage:
-(first time only: docker pull r-base )
+### Usage
+First time only: pull [r-base docker image](https://hub.docker.com/_/r-base/)
 
-# Copy rdata file into cwd:
+```sh 
+docker pull r-base
+```
 
-cd my_project_directory
-cp ~/Downloads/example.RData $PWD
+Copy rdata file into cwd:
 
-# Run r-base docker container and open an interactive terminal:
-docker run -ti --rm -v "$PWD":/home/docker r-base bash
+```sh 
+cd my_project_directory 
+cp ~/Downloads/example.RData $PWD 
+```
 
-# chdir to home and run the transformation script
+Run r-base docker container and open an interactive terminal:
+```sh 
+docker run -ti --rm -v "$PWD":/home/docker r-base bash 
+```
+
+* chdir to home and run the transformation script
+
+```sh 
 cd /home/docker
 Rscript rdata_to_csv.r INPUT_FILE.Rdata (optional)OUTPUT_FILE.CSV
+exit
+```
